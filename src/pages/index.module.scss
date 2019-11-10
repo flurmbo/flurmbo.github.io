@@ -1,0 +1,51 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.header {
+  background-image: url(../../static/bg2.jpg);
+  background-size: cover;
+  height: 40vw;
+  position: relative;
+
+  &__textBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba($ground-brown, .8);
+    color: $sky-blue;
+    padding: 3rem;
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+    border-radius: 3rem;
+    border-style: solid;
+    
+  }
+
+  &__headingPrimary {
+    margin-top: 0;
+    font-size: 4rem;
+    color: inherit;
+    animation-name: fadein;
+    animation-duration: 500ms;
+  }
+
+  &__headingSecondary {
+    color: inherit;
+    font-size: 3rem;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-duration: 500ms;
+    animation-delay: 300ms;
+  }
+}

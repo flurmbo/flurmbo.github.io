@@ -1,0 +1,40 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $ground-brown;
+  box-sizing: border-box;
+  height: 6rem;
+}
+.navRight, .navLeft {
+  display: flex;
+  & div {
+    border-color: $sky-blue;
+    border-bottom-style: solid;
+    border-bottom-width: .3rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 50% 95%, 50% 100%, 50% 100%, 50% 95%, 0% 95%);
+    transition: clip-path 300ms;
+    &:hover {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 100% 95%, 100% 100%, 0% 100%, 0% 95%, 0% 95%);
+    }
+  }
+
+  &__link {
+    font-family: 'Montserrat',sans-serif;
+    color: $sky-blue;
+    font-size: 2rem;
+    text-decoration: none;
+    
+    display: block;
+    height: 6rem;
+    min-width: 10rem;
+    line-height: 6rem;
+    text-align: center;
+  }
+
+  .navLeft {
+    &__link {
+      margin-left: 2rem;
+    }
+  }
+}
