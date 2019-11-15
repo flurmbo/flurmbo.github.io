@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { FaChevronDown } from "react-icons/fa";
 import ProjectCard from "../components/projectCard";
 import ProjectModal from "../components/projectModal";
+import LONG_CONTENT from "../utils/longContent";
 
 const onClickAnchor = function(e) {
   e.preventDefault();
@@ -14,17 +15,17 @@ const onClickAnchor = function(e) {
 };
 
 const cardData = [
-  { title: "Project 1", description: "I did stuff"},
-  { title: "Project 2", description: "I did more stuff"},
+  { title: "Project 1", description: "I did stuff", content: LONG_CONTENT},
+  { title: "Project 2", description: "I did more stuff", content: LONG_CONTENT},
 
-  { title: "Project 3", description: "I did stuff"},
-  { title: "Project 4", description: "I did more stuff"},
+  { title: "Project 3", description: "I did stuff", content: LONG_CONTENT},
+  { title: "Project 4", description: "I did more stuff", content: LONG_CONTENT},
 
-  { title: "Project 5", description: "I did stuff"},
-  { title: "Project 6", description: "I did more stuff"},
+  { title: "Project 5", description: "I did stuff", content: LONG_CONTENT},
+  { title: "Project 6", description: "I did more stuff", content: LONG_CONTENT},
 
-  { title: "Project 7", description: "I did stuff"},
-  { title: "Project 8", description: "I did more stuff"},
+  { title: "Project 7", description: "I did stuff", content: LONG_CONTENT},
+  { title: "Project 8", description: "I did more stuff", content: LONG_CONTENT},
 ];
 
 
@@ -39,6 +40,8 @@ export default () => {
         description={card.description}
         key={index}
         setSelectedCard={() => {console.log('hi'); setSelectedCard(index)}}
+        show={selectedCard === -1}
+
       />
     );
   });
@@ -77,7 +80,7 @@ export default () => {
       <ProjectModal
         selectedCard={selectedCard}
         handleCloseModal={handleCloseModal}
-        cardData={cardData}
+        cardData={cardData[selectedCard]}
       />
       }
     </Layout>

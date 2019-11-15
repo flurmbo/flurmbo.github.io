@@ -1,17 +1,37 @@
+@keyframes slidein {
+  from {
+    top: 100%;
+    opacity: 0;
+  }
+
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
 .modal {
   &__content {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    border: 1px solid #ccc;
-    background: #fff;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 4px;
+    animation-duration: 300ms;
+    animation-name: slidein;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $ground-brown;
     outline: none;
     padding: 20px;
+    font-size: 3rem;
+    color: $sky-blue;
+
+    width: 80rem;
+    border-radius: 3rem;
+    border-style: solid;
+    border-color:$sky-blue;
+    margin: 3rem;
+    padding: 2rem;
+    transition: transform 300ms;
+    
   }
 
   &__overlay {
@@ -21,5 +41,10 @@
       left: 0;
       right: 0;
       bottom: 0;
+  }
+
+  &__logo {
+    float: left;
+    margin: 1rem;
   }
 }

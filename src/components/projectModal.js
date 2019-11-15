@@ -6,6 +6,7 @@ Modal.setAppElement('#___gatsby');
 
 export default (props) => {
   const { selectedCard, handleCloseModal, cardData } = props;
+  console.log('data',cardData)
   return (
     <Modal
     isOpen={!(selectedCard === -1)}
@@ -14,8 +15,10 @@ export default (props) => {
     className={styles.modal__content}
     overlayClassName={styles.modal__overlay}
   >
+    <img className ={styles.modal__logo} src="./logo.jpg" />
     <div>
-      {cardData[selectedCard].title} is the title
+    <div className={styles.modal__title}>{cardData.title}</div>
+    <div className={styles.modal__description}>{cardData.content}</div>
     </div>
   </Modal>
 )};

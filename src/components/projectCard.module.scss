@@ -8,6 +8,7 @@
   padding: 2rem;
   transition: transform 300ms;
   backface-visibility: hidden;
+  transition: opacity 300ms;
 
   &:hover {
     transform: scale(1.1);
@@ -30,5 +31,9 @@
   &__logo {
     width: 5rem;
     height: 5rem;
+  }
+
+  &__hide {
+    opacity: 0;
   }
 }

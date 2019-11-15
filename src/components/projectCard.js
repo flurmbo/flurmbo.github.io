@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./projectCard.module.scss";
 
 export default (props) => {
-  const { title, description, setSelectedCard } = props;
+  const { title, description, setSelectedCard, show } = props;
   return (
-  <div className={styles.card} onClick={setSelectedCard}>
+  <div 
+  className={styles.card + (show ? '' : ' ' + styles.card__hide)} 
+  
+  onClick={setSelectedCard}>
     <img className ={styles.card__logo} src="./logo.jpg"/>
     <div className={styles.card__content}>
     <div className={styles.card__title}>{title}</div>
