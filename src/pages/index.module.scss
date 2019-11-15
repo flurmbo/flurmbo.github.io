@@ -10,9 +10,9 @@
 
 
 .header {
-  background-image: url(../../static/bg2.jpg);
+  background-image: url(../../static/bg3.jpg);
   background-size: cover;
-  height: 40vw;
+  height: 80vh;
   position: relative;
 
   &__textBox {
@@ -48,4 +48,41 @@
     animation-duration: 500ms;
     animation-delay: 300ms;
   }
+
+  &__myWork {
+    font-size: 2.5rem;
+    color: $sky-blue;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba($ground-brown, .8);
+    color: $sky-blue;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 2rem;
+    border-style: solid;
+
+    &__link {
+      color: $sky-blue;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  & p {
+    margin: 0
+  }
+
+  & svg {
+    vertical-align: middle;
+  }
+}
+
+.work {
+  display: flex;
+  flex-wrap: wrap;
 }

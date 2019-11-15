@@ -19,16 +19,16 @@ module.exports = {
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: "src/utils/typography"
-      }
+        pathToConfigModule: "src/utils/typography",
+      },
     },
     "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-sass",
       options: {
-        data: `@import "${__dirname}/src/styles/styles";`
-      }
-    }
-    
+        data: `@import "${__dirname}/src/styles/styles";`,
+      },
+    },
+    "gatsby-plugin-react-helmet",
   ],
-}
+};
