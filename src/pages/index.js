@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout from "../components/layout";
 import styles from "./index.module.scss";
 import { Helmet } from "react-helmet";
@@ -32,23 +32,48 @@ const cardData = [
 
 export default () => {
   const [selectedCard, setSelectedCard] = useState(-1);
-  
+  const cardOneRef = useRef();
+  const [coords, setCoords] = useState(undefined);
+
+  const handleClickProjectCard = () => {
+    const rect = cardOneRef.current.getBoundingClientRect();
+    setCoords({x: rect.x, y: rect.y});
+    console.log('coords', {x: rect.x, y: rect.y});
+    setSelectedCard(0)
+  }
   const cards = cardData.map((card, index) => {
+
     return (
       <ProjectCard
         title={card.title}
         description={card.description}
         key={index}
-        setSelectedCard={() => {console.log('hi'); setSelectedCard(index)}}
+        alt={"alt"}
+        handleClick={handleClickProjectCard}
         show={selectedCard === -1}
+        ref={index === 0 ? cardOneRef : undefined}
 
       />
     );
   });
 
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      console.log(`x: ${e.clientX} y: ${e.clientY}`);
+    })
+  }, []);
+
   const handleCloseModal = () => {
     setSelectedCard(-1)
   }
+
+  // useEffect(() => {
+  //   if (cardOneRef.current) {
+  //     const rect = cardOneRef.current.getBoundingClientRect();
+  //     setCoords({x: rect.x, y: rect.y});
+  //     console.log('coords', {x: rect.x, y: rect.y});
+  //   }
+  // }, []);
 
   return (
     <Layout>
@@ -81,6 +106,8 @@ export default () => {
         selectedCard={selectedCard}
         handleCloseModal={handleCloseModal}
         cardData={cardData[selectedCard]}
+        coords={coords}
+        alt={"alt"}
       />
       }
     </Layout>

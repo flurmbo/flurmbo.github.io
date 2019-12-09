@@ -1,12 +1,22 @@
 @keyframes slidein {
   from {
-    top: 100%;
+    // top: 100%;
     opacity: 0;
   }
 
   to {
-    top: 50%;
+    // top: 50% + 3rem;
     opacity: 1;
+  }
+}
+
+@keyframes darkenOverlay {
+  from {
+    background-color: rgba(black, 0);
+  }
+
+  to {
+    background-color: rgba(black, .3);
   }
 }
 
@@ -30,12 +40,13 @@
     border-color:$sky-blue;
     margin: 3rem;
     padding: 2rem;
-    transition: transform 300ms;
     
   }
 
   &__overlay {
-
+    background-color: rgba(black, .3);
+    animation-duration: 300ms;
+    animation-name: darkenOverlay;
       position: fixed;
       top: 0;
       left: 0;
